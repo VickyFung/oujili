@@ -114,48 +114,52 @@ platform
 
 # 页面展示
 ## 客户端
-![image](https://www.wxmblog.com/upload/2024/01/image.png)
+![image](https://www.wxmblog.com/upload/2025/08/image.png)
 
-![image-1704095985738](https://www.wxmblog.com/upload/2024/01/image-1704095985738.png)
+![image-1704095985738](https://www.wxmblog.com/upload/2025/08/image-1704095985738.png)
 
-![image-1720543710239](https://www.wxmblog.com/upload/2024/07/image-1720543710239.png)
+![image-1720543710239](https://www.wxmblog.com/upload/2025/08/image-1720543710239.png)
 
-![image-1720543768089](https://www.wxmblog.com/upload/2024/07/image-1720543768089.png)
+![image-1720543768089](https://www.wxmblog.com/upload/2025/08/image-1720543768089.png)
 
-![image-1704096286155](https://www.wxmblog.com/upload/2024/01/image-1704096286155.png)
+![image-1704096286155](https://www.wxmblog.com/upload/2025/08/image-1704096286155.png)
 
-![image-1704096379510](https://www.wxmblog.com/upload/2024/01/image-1704096379510.png)
+![image-1704096379510](https://www.wxmblog.com/upload/2025/08/image-1704096379510.png)
 
-![image-1704096488039](https://www.wxmblog.com/upload/2024/01/image-1704096488039.png)
+![image-1704096488039](https://www.wxmblog.com/upload/2025/08/image-1704096488039.png)
 
-![image-1704096557001](https://www.wxmblog.com/upload/2024/01/image-1704096557001.png)
+![image-1704096557001](https://www.wxmblog.com/upload/2025/08/image-1704096557001.png)
 
-![image-1704096901008](https://www.wxmblog.com/upload/2024/01/image-1704096901008.png)
+![image-1704096901008](https://www.wxmblog.com/upload/2025/08/image-1704096901008.png)
 
-![image-1704096851604](https://www.wxmblog.com/upload/2024/01/image-1704096851604.png)
+![image-1704096851604](https://www.wxmblog.com/upload/2025/08/image-1704096851604.png)
 
-![image-1704096994556](https://www.wxmblog.com/upload/2024/01/image-1704096994556.png)
+![image-1704096994556](https://www.wxmblog.com/upload/2025/08/image-1704096994556.png)
 
-![image-1704097048206](https://www.wxmblog.com/upload/2024/01/image-1704097048206.png)
+![image-1704097048206](https://www.wxmblog.com/upload/2025/08/image-1704097048206.png)
 
-![image-1704097967350](https://www.wxmblog.com/upload/2024/01/image-1704097967350.png)
+![image-1704097967350](https://www.wxmblog.com/upload/2025/08/image-1704097967350.png)
 
-![image-1720543671736](https://www.wxmblog.com/upload/2024/07/image-1720543671736.png)
+![image-1720543671736](https://www.wxmblog.com/upload/2025/08/image-1720543671736.png)
 
-![image-1704097243586](https://www.wxmblog.com/upload/2024/01/image-1704097243586.png)
+![image-1704097243586](https://www.wxmblog.com/upload/2025/08/image-1704097243586.png)
 
-![image-1704097666584](https://www.wxmblog.com/upload/2024/01/image-1704097666584.png)
+![image-1704097666584](https://www.wxmblog.com/upload/2025/08/image-1704097666584.png)
 
 ## 后台管理端
-![image-1703080008972](https://www.wxmblog.com/upload/2023/12/image-1703080008972.png)
+![image-1703080008972](https://www.wxmblog.com/upload/2025/08/image-1703080008972.png)
 
-![image-1703080026969](https://www.wxmblog.com/upload/2023/12/image-1703080026969.png)
+![image-1703080026969](https://www.wxmblog.com/upload/2025/08/image-1703080026969.png)
 
-![image-1703080054976](https://www.wxmblog.com/upload/2023/12/image-1703080054976.png)
+![image-1703080054976](https://www.wxmblog.com/upload/2025/08/image-1703080054976.png)
 
-![image-1703080089429](https://www.wxmblog.com/upload/2023/12/image-1703080089429.png)
+![image-1703080104100](https://www.wxmblog.com/upload/2025/08/image-1703080104100.png)
 
-![image-1703080104100](https://www.wxmblog.com/upload/2023/12/image-1703080104100.png)
+![image-1703080089429](https://www.wxmblog.com/upload/2025/08/image-1703080089429.png)
+
+# 软著
+![ruazhu3](https://www.wxmblog.com/upload/2025/08/ruazhu3.jpg)
+
 # 联系我们
 ## 作者微信
 MMRWXM
