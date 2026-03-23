@@ -1,18 +1,16 @@
 # 简介
 《欧几里》是一款一比一模仿《青藤之恋》的社交交友软件开源项目，主打高学历优质人群交友，功能上基本还原青藤之恋，以双向喜欢后解锁聊天，目前适配微信小程序，手机App，H5，三端通用，功能完整，盈利模式完善，高度配置化，功能模块化，高内聚，低耦合，一天快速上线，已对接支付接口，只需要简单的修改配置文件中相关信息，即可实现快速部署上线，减少开发的时间成本，金钱成本，技术成本，将更多的精力放在产品运营上。
-# 原文地址
-https://www.wxmblog.com/archives/fang-qing-teng-zhi-lian-she-jiao-jiao-you-ruan-jian-wei-xin-xiao-cheng-xu-apph5-san-duan-tong-yong
 # 演示地址
 ## 小程序端小程序演示
 微信扫描下方小程序码，可添加作者微信（MMRWXM）交流<br>
 ![gh_01e98cf10e5a_430](https://www.wxmblog.com/upload/2024/11/gh_01e98cf10e5a_430.jpg)
 ## H5演示地址
-https://www.wxmblog.com/oujili
+http://oujili.crget.com
 ## 安卓APK
 下载地址：
-https://www.wxmblog.com/devminio/oujili/2024/09/22/2c73cd3d-ae8b-4987-9133-16dc75fec051.apk
+https://file.crget.com/oujiliapp.apk
 ## 后台管理演示地址
-http://1.14.110.117:8089<br>
+https://oujiliadmin.crget.com<br>
 账号：demo<br>
 密码：123456
 #  合作洽谈
@@ -21,7 +19,7 @@ http://1.14.110.117:8089<br>
 ## github
 https://github.com/378526425/oujili
 ## gitee
-https://gitee.com/wxmr0/oujili
+https://gitee.com/chuangchaokeji/oujili
 # 关于授权
 ✅允许
 - 允许用于个人学习、毕业设计、教学案例、公益事业、商业使用（商用建议使用旗舰版）
@@ -165,5 +163,3 @@ platform
 MMRWXM
 ## QQ交流群
 546414613
-# 其他优秀开源项目推荐
-https://www.wxmblog.com/categories/open
