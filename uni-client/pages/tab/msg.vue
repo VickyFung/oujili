@@ -483,7 +483,7 @@
 		}
 
 		.msgs {
-			/deep/ .u-swipe-action-item {
+			::v-deep .u-swipe-action-item {
 				border-radius: 24rpx;
 				margin: 20rpx 0;
 

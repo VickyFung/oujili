@@ -48,7 +48,7 @@ import props from "./props.js";
  *
  * @property {String | Number} 		value					输入框的内容
  * @property {String | Number}		placeholder				输入框为空时占位符
- * @property {String}			    placeholderClass		指定placeholder的样式类，注意页面或组件的style中写了scoped时，需要在类名前写/deep/ （ 默认 'input-placeholder' ）
+ * @property {String}			    placeholderClass		指定placeholder的样式类，注意页面或组件的style中写了scoped时，需要在类名前写::v-deep （ 默认 'input-placeholder' ）
  * @property {String | Object}	    placeholderStyle		指定placeholder的样式，字符串/对象形式，如"color: red;"
  * @property {String | Number}		height					输入框高度（默认 70 ）
  * @property {String}				confirmType				设置键盘右下角按钮的文字，仅微信小程序，App-vue和H5有效（默认 'done' ）

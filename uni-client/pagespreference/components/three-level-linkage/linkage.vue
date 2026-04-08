@@ -393,7 +393,7 @@
 		margin-top: 38rpx;
 	}
 
-	/deep/ .indicator-class {
+	::v-deep .indicator-class {
 		background: #EEF5FE;
 		z-index: -1;
 	}
