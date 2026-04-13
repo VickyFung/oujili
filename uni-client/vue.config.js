@@ -3,7 +3,7 @@ module.exports = {
 		    proxy: {
 		      '/wxmapi': {
 		        //target: 'http://localhost:8088',
-				target: 'https://www.wxmblog.com/wxmapi',
+				target: 'http://apitest.yuelaobaobao.com',
 				changeOrigin: true,
 		        pathRewrite: {
 		          '^/wxmapi': ''

@@ -1,19 +1,19 @@
 
-// #ifdef H5
-export const BASE_URL = `${location.protocol}//${location.host}/wxmapi`
-// #endif
+// // #ifdef H5
+// export const BASE_URL = `${location.protocol}//${location.host}/wxmapi`
+// // #endif
 // #ifndef H5
 // 请求接口
-export const BASE_URL = 'https://www.wxmblog.com/wxmapi'; //正式接口  
-//export const BASE_URL = 'http://192.168.31.121:8088'; //本地接口  
+export const BASE_URL = 'https://apitest.yuelaobaobao.com'; //正式接口  
+// export const BASE_URL = 'http://192.168.31.121:8088'; //本地接口  
 // #endif
 
-// #ifdef MP-WEIXIN
-export const AMAPKEY = '7528e756feaebfabd1abbb1b04097a1e'; //高德定位小程序
-// #endif
-// #ifdef APP-PLUS
-export const AMAPKEY = 'cdd98f785c3d27a17bf4d7022783ede9'; //高德定位APP
-// #endif
+// // #ifdef MP-WEIXIN
+// export const AMAPKEY = '7528e756feaebfabd1abbb1b04097a1e'; //高德定位小程序
+// // #endif
+// // #ifdef APP-PLUS
+// export const AMAPKEY = 'cdd98f785c3d27a17bf4d7022783ede9'; //高德定位APP
+// // #endif
 
 
 export const myRequest = (options) => {
