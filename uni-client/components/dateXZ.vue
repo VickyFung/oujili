@@ -4,16 +4,16 @@
 		<picker-view v-if="visible" :indicator-style="indicatorStyle" :value="value" @change="bindChange"
 			@pickend="pickend" class="picker-view" indicator-class="indicator-class" :mask-style="fsdfds">
 			<picker-view-column>
-				<view class="item" style="text-align: right;" v-for="(item, index) in years" :key="index"
+				<view class="item" style="text-align: right;" v-for="(item, index) in years" :key="item"
 					:class="year == item ? 'lldl' : ''">{{ item }}</view>
 			</picker-view-column>
 			<picker-view-column>
-				<view class="item" v-for="(item, index) in months" :key="index" :class="month == item ? 'lldl' : ''">
+				<view class="item" v-for="(item, index) in months" :key="item" :class="month == item ? 'lldl' : ''">
 					{{ item }}
 				</view>
 			</picker-view-column>
 			<picker-view-column>
-				<view class="item" style="text-align: left;" v-for="(item, index) in days" :key="index"
+				<view class="item" style="text-align: left;" v-for="(item, index) in days" :key="item"
 					:class="day == item ? 'lldl' : ''">{{ item }}</view>
 			</picker-view-column>
 		</picker-view>
@@ -52,7 +52,14 @@
 	 * @example <u-picker v-model="show" mode="time"></u-picker>
 	 */
 	export default {
+		props: {
+			defaultTime: {
+				type: String,
+				default: '1997-1-1'
+			}
+		},
 		data: function() {
+			// const date = new Date(this.defaultTime);
 			const date = new Date();
 			const years = [];
 			const year = date.getFullYear();
@@ -60,7 +67,7 @@
 			const month = date.getMonth() + 1;
 			const days = [];
 			const day = date.getDate();
-			for (let i = 1990; i <= date.getFullYear(); i++) {
+			for (let i = 1990; i <= year - 16; i++) {
 				years.push(i);
 			}
 			for (let i = 1; i <= 12; i++) {
@@ -83,12 +90,15 @@
 				fsdfds: `opacity: 0.5;background: rgba(238, 245, 254, 0);`
 			};
 		},
+		// onShow() {
+		// 	var curTime = this.year + '-' + this.month + '-' + this.day + ' ' + '00' + ':' + '00' + ':' + '00';
+		// 	this.$emit('curTime', curTime);
+		// },
 		methods: {
 			pickend(e) {
 				console.log(e);
 			},
 			bindChange: function(e) {
-				console.log(e);
 				const val = e.detail.value;
 				this.year = this.years[val[0]];
 				this.month = this.months[val[1]];

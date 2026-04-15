@@ -21,7 +21,7 @@
 		</view>
 		<view class="date-c">
 
-			<my-select @valChange="handleDateChange" @curTime="curTime" :default-time="`${1997}-${12}-${1}`" mode="time"
+			<my-select @valChange="handleDateChange" @curTime="curTime" :default-time="`${1997}-${1}-${1}`" mode="time"
 				class="my-select">
 			</my-select>
 		</view>

@@ -3,9 +3,9 @@
 		<view class="con-box">
 			<!-- <view class="con-box-top">
 				<image class="con-box-logo" src="../static/images/logo.png" mode="aspectFill"></image>
-				<view class="con-box-name">欧几里</view>
+				<view class="con-box-name">月老宝宝</view>
 			</view> -->
-			<view class="con-box-about">欧几里用户协议</view>
+			<view class="con-box-about">月老宝宝用户协议</view>
 			<view class="con-box-info">更新时间：2023年6月15日</view>
 			<view class="con-box-info">修改时间：2023年6月15日</view>
 			<view class="con-box-contet">一，账号注册</view>

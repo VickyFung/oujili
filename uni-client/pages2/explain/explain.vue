@@ -12,7 +12,7 @@
 		</view>
 		<view class="toptext">
 			<view class="toptexts">
-				欧几里服务号
+				月老宝宝服务号
 			</view>
 			<view class="toptextsss">
 				2022-12-1 11:23
@@ -36,7 +36,7 @@
 		</view>
 		<image :src="img+'img/ewm.png'" show-menu-by-longpress mode="aspectFill" class="img"></image>
 		<view class="toptextssing" style="margin-top: 70rpx;">
-			长按扫码二维码关注《欧几里》
+			长按扫码二维码关注《月老宝宝》
 
 		</view>
 		<view class="toptextssing" style="margin-top: 30rpx;">

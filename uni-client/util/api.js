@@ -1,20 +1,7 @@
-
-// // #ifdef H5
-// export const BASE_URL = `${location.protocol}//${location.host}/wxmapi`
-// // #endif
-// #ifndef H5
 // 请求接口
-export const BASE_URL = 'https://apitest.yuelaobaobao.com'; //正式接口  
-// export const BASE_URL = 'http://192.168.31.121:8088'; //本地接口  
-// #endif
+export const BASE_URL = 'http://apitest.yuelaobaobao.com/api/app'; //正式接口
 
-// // #ifdef MP-WEIXIN
-// export const AMAPKEY = '7528e756feaebfabd1abbb1b04097a1e'; //高德定位小程序
-// // #endif
-// // #ifdef APP-PLUS
-// export const AMAPKEY = 'cdd98f785c3d27a17bf4d7022783ede9'; //高德定位APP
-// // #endif
-
+export const AMAPKEY = 'afc1108338a00b4719cd5922e98bcd8a'; //高德定位小程序
 
 export const myRequest = (options) => {
 	if (options && options.withToken) {
@@ -34,19 +21,22 @@ export const myRequest = (options) => {
 			method: options.method || "GET",
 			data: options.data || {},
 			header: {
-				Authorization:options.withToken? uni.getStorageSync("token"):'',
+				Authorization: options.withToken? uni.getStorageSync("token"):'',
 			},
 			success: (res) => {
-				if (res.data.code == 2) {
+				if (res.data.code == 401 || res.data.code == 2) {
 					uni.showToast({
 						icon: 'none',
 						title: '登录失效，请重新登录',
 						duration: 2000
 					})
+					uni.removeStorageSync('token');
+					uni.removeStorageSync('info');
+					uni.removeStorageSync('itemobj');
 					setTimeout(() => {
 						uni.reLaunch({
-							url:"/pages/tab/index"
-						})
+							url: '/pageslogin/index/index'
+						});
 					}, 200);
 				}
 				resolve(res);

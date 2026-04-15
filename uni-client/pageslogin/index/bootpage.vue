@@ -13,7 +13,7 @@
 		</view>
 
 		<view class="start-btn" @click="handleShowTips">
-			<text>进入「 欧几里 」</text>
+			<text>进入「 月老宝宝 」</text>
 		</view>
 
 	</view>
@@ -29,7 +29,17 @@
 		onLoad(options) {
 			this.obj = JSON.parse(options.obj)
 			console.log(this.obj)
-			console.log(	uni.getStorageSync('itemobj'),"===============")
+			const userInfo = uni.getStorageSync('itemobj');
+			this.$myRequest({
+				url: 'user/update',
+				data: {
+					gender: userInfo.gender,
+					birthday: userInfo.birthday,
+					city: userInfo.city,
+				},
+				withToken: true,
+				method: 'POST'
+			});
 		},
 		methods: {
 			handleShowTips() {

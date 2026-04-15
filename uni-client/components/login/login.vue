@@ -7,7 +7,7 @@
 				<view class="container">
 
 					<view class="container-c">
-						<view class="pop-title">登录欧几里</view>
+						<view class="pop-title">登录月老宝宝</view>
 						<view class="tips-content">
 							立即遇见喜欢的TA
 						</view>

@@ -88,7 +88,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx635b127b3142def3",
+        "appid" : "wxa845470876e64a6e",
         "setting" : {
             "urlCheck" : false
         },
@@ -121,7 +121,7 @@
             "mode" : "hash",
             "base" : "/oujili/"
         },
-        "title" : "欧几里",
+        "title" : "月老宝宝",
         "sdkConfigs" : {
             "maps" : {
                 "qqmap" : {

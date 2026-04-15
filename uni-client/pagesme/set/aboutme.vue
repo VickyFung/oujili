@@ -3,10 +3,10 @@
 		<view class="con-box">
 			<view class="con-box-top">
 				<image class="con-box-logo" src="../static/images/logo.png" mode="aspectFill"></image>
-				<view class="con-box-name">欧几里</view>
+				<view class="con-box-name">月老宝宝</view>
 				<view class="con-box-version">v 1.1.1</view>
 			</view>
-			<view class="con-box-about">关于欧几里</view>
+			<view class="con-box-about">关于月老宝宝</view>
 			<view class="con-box-info">只对高学历开发的优质青年交友平台，极度严格审核，保证真实高端。每天推荐不同嘉宾，心动了就抓住机会与Ta聊聊吧！</view>
 		</view>
 		<view class="con-bot">
