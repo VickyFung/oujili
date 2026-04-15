@@ -19,3 +19,5 @@ tests/**/coverage/
 unpackage/
 .hbuilderx
 .hbuilderx/
+
+# mars-admin-dev/
