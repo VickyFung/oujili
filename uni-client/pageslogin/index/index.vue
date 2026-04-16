@@ -106,6 +106,10 @@
 					const { token, userId } = res.data.data;
 					uni.setStorageSync('userId', userId);
 					uni.setStorageSync('token', token);
+					const { loginTIM } = require('@/util/tim.js');
+					loginTIM(String(userId)).catch(err => {
+						console.error('[TIM] 登录页登录失败', err);
+					});
 					const resInfo = await this.$myRequest({
 						url: 'user/getInfo',
 						withToken: true,
@@ -119,7 +123,8 @@
 						if (!userInfo.gender) { // 如果用户信息中没有性别，说明是新用户，跳转到完善信息页
 							uni.navigateTo({ url: './gender' }); // 在bootpage.vue中完善信息后，会存储itemobj，并跳转到主页
 						} else { // 跳转到主页
-							uni.setStorageSync('itemobj', userInfo); // 存储用户信息到 itemobj，下次进入 App.vue 时可以直接跳转到主页
+							uni.setStorageSync('itemobj', { ...userInfo, id: userId }); // 存储用户信息到 itemobj，下次进入 App.vue 时可以直接跳转到主页
+							uni.setStorageSync('info', { ...userInfo, id: userId }); // 存储用户信息到 itemobj，下次进入 App.vue 时可以直接跳转到主页
 							uni.switchTab({ url: '/pages/tab/index' });
 						}
 					}

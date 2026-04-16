@@ -440,9 +440,12 @@
 			},
 			async getUserIno() {
 				const res = await this.$myRequest({
-					url: '/nostalgia/fruser/personalInfo',
+					url: 'user/getInfo',
 					withToken: true,
-					method: 'GET',
+					method: 'POST',
+					data: {
+						id: getstorageSync("userId")
+					}
 				});
 				if (res.data.code == 200) {
 					debugger

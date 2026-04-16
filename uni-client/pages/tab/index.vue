@@ -352,8 +352,9 @@
 		},
 		onHide() {
 			if (!this.chooseimg) {
-				this.reConnect = true;
-				this.closeSocket();
+				// TIM 已替代 WebSocket，以下旧逻辑注释掉
+				// this.reConnect = true;
+				// this.closeSocket();
 				clearInterval(this.timeoutObj); //销毁定时器
 			}
 
@@ -380,10 +381,11 @@
 			this.chooseimg = false;
 			this.showAnima = false;
 			if (uni.getStorageSync('token')) {
-				// this.getRecUserInfo();
+				this.getRecUserInfo();
 				// this.getUnRead();
 				this.ownerId = uni.getStorageSync('itemobj') != null ? uni.getStorageSync('itemobj').userId : null;
-				this.connectSocketInit();
+				// TIM 已替代 WebSocket
+				// this.connectSocketInit();
 			}
 		},
 		onReachBottom(e) {
@@ -632,11 +634,11 @@
 				uni.getStorageSync('token') ? (loginType = true) : (loginType = false);
 
 				this.$myRequest({
-					url: 'nostalgia/fruser/recommendUserInfo',
+					url: 'user/recommend',
 					withToken: loginType,
 					data: {
 						age,
-						gender: this.gender == undefined ? "FEMALE" : this.gender
+						gender: this.gender ?? "MALE"
 					},
 					method: 'GET'
 				}).then(res => {
