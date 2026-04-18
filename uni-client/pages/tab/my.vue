@@ -137,21 +137,21 @@
 
 
 			<view class="box" style="">
-				<view class="box-bottom" v-for="item in menus" :key="item.id" @click="whether(item.id)">
+				<view class="box-bottom" v-for="(item,index) in button" :key="index" @click="whether(index)">
 					<view class="box-bottom-left">
 						<image :src="item.img" class="box-bottom-img" mode="aspectFill"></image>
 						<view class="box-bottom-text">
 							{{item.name}}
 						</view>
-						<!-- <view class="box-bottom-text-la" v-if="index == 0">
+						<view class="box-bottom-text-la" v-if="index == 0">
 							{{info.goldBalance}}
-						</view> -->
+						</view>
 					</view>
 					<view class="box-bottom-right">
-						<!-- <view class="box-bottom-right-name" v-if="item.id != 2">
+						<view class="box-bottom-right-name" v-if="index != 2">
 							{{item.la}}
 						</view>
-						<view class="box-bottom-right-name" v-else>
+						<view class="box-bottom-right-name" v-else="index != 2">
 							<u-button open-type="share" :hairline="false" :customStyle="{
 								'font-size': '28rpx',
 								'font-family': 'PingFang SC-Regular, PingFang SC',
@@ -163,7 +163,7 @@
 								{{item.la}}
 							</u-button>
 
-						</view> -->
+						</view>
 
 						<image src="../../static/right.png" class="box-bottom-right-img" mode="aspectFill"></image>
 					</view>
@@ -193,28 +193,26 @@
 				nologin: '',
 				img: this.$BASE_URL,
 				bgColor: "rgba(255, 255, 255, 0)",
-				menus: [{
-				// 	name: "欧几币",
-				// 	num: 0,
-				// 	la: "立即充值",
-				// 	img: "../../static/images/mymoney.png",
-				// }, {
-					id: 1,
+				button: [{
+					name: "欧几币",
+					num: 0,
+					la: "立即充值",
+					img: "../../static/images/mymoney.png",
+				}, {
 					name: "个人资料",
 					num: '',
 					la: "",
 					img: "../../static/images/myren.png",
 				}, {
-					id: 2,
 					name: "推荐给好友",
 					num: '',
-					la: "增加推荐额度",
+					la: "免费获得欧几币",
 					img: "../../static/images/myshare.png",
-				// }, {
-				// 	name: "设置",
-				// 	num: '',
-				// 	la: "",
-				// 	img: "../../static/images/myset.png",
+				}, {
+					name: "设置",
+					num: '',
+					la: "",
+					img: "../../static/images/myset.png",
 				}],
 				info: {
 					userArticleViewResponse:{
@@ -232,24 +230,20 @@
 		},
 		onShow() {
 			if (uni.getStorageSync('token')) {
-				// this.getUnRead()
+				this.getUnRead()
 				this.ownerId = uni.getStorageSync('info') != null ? uni.getStorageSync('info').id : null;
-				// TIM 已替代 WebSocket
-				// this.connectSocketInit();
+				this.connectSocketInit();
 			}
 			if (uni.getStorageSync('info')) {
 				this.nologin = false
-				this.flag = true
-				this.info = uni.getStorageSync('info');
-				// this.personalCenter()
+				this.personalCenter()
 			} else {
 				this.nologin = true
 			}
 		},
 		onHide() {
-			// TIM 已替代 WebSocket
-			// this.reConnect = true;
-			// this.closeSocket();
+			this.reConnect = true;
+			this.closeSocket();
 			clearInterval(this.timeoutObj); //销毁定时器
 		},
 		methods: {
@@ -371,8 +365,7 @@
 					this.personalCenter()
 					this.getUnRead()
 					this.ownerId = res.data.data.info.id;
-					// TIM 已替代 WebSocket
-					// this.connectSocketInit();
+					this.connectSocketInit();
 				} else if (res.data.code == 11002) {
 
 					uni.reLaunch({
