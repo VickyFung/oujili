@@ -169,6 +169,16 @@
 					}
 				},
 				{
+					"path": "me/editInfo",
+					"style": {
+						"navigationBarTitleText": "编辑资料",
+						"backgroundColorTop": "#F4F5F9",
+						"backgroundColorBottom": "#F4F5F9",
+						"navigationBarBackgroundColor": "#F4F5F9",
+						"backgroundColor": "#F4F5F9"
+					}
+				},
+				{
 					"path": "set/set",
 					"style": {
 						"navigationBarTitleText": "设置",
