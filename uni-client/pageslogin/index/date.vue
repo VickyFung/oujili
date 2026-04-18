@@ -61,7 +61,7 @@
 				isShow: false,
 				value1: Number(new Date()),
 				year: 1997,
-				month: 12,
+				month: 1,
 				day: 1,
 				img: this.$BASE_URL,
 				obj: {
@@ -82,12 +82,7 @@
 			},
 
 			getCurrentTime() {
-				var date = new Date(); //当前时间
-				var year = date.getFullYear() //返回指定日期的年份
-				var month = this.repair(date.getMonth() + 1); //月
-				var day = this.repair(date.getDate()); //日
-				//当前时间 
-				var curTime = year + "-" + month + "-" + day + " " + '00' + ":" + '00' + ":" + '00';
+				var curTime = this.year + "-" + this.month + "-" + this.day + " " + '00' + ":" + '00' + ":" + '00';
 				console.log(curTime)
 				this.obj.birthday = curTime
 			},

@@ -60,6 +60,7 @@
 		onLoad(options) {
 			this.obj = JSON.parse(options.obj);
 			console.log(this.obj);
+			this.obj.headPortrait = decodeURIComponent(this.obj.headPortrait);
 		},
 		methods: {
 			left() {

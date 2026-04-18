@@ -80,30 +80,31 @@
 				uni.chooseImage({
 					count: 1,
 					success: (res) => {
-						res.tempFilePaths.forEach((i) => {
-							uni.uploadFile({
-								url: this.$BASE_URL + '/file/upload',
-								filePath: i,
-								name: 'file',
-								formData: {
-									'file': 'file'
-								},
-								success: (res) => {
+						// res.tempFilePaths.forEach((i) => {
+						// 	uni.uploadFile({
+						// 		url: this.$BASE_URL + '/file/upload',
+						// 		filePath: i,
+						// 		name: 'file',
+						// 		formData: {
+						// 			'file': 'file'
+						// 		},
+						// 		success: (res) => {
 
-									let dataing = JSON.parse(res.data)
-									console.log(dataing)
+						// 			let dataing = JSON.parse(res.data)
+						// 			console.log(dataing)
 									this.falg = false
-									this.src = dataing.data.url
+									// this.src = dataing.data.url
+									this.src = encodeURIComponent('https://himg.bdimg.com/sys/portraitn/item/public.1.502b8e83.2JiWeQIfYpNaE2VF8P8BAA?_d=29608849')
 									console.log(this.src)
 
-								},
-								fail: (loginErr) => {
-									this.tipMsg = "上传失败，请重试";
-									this.$refs.elm.showDialog();
+						// 		},
+						// 		fail: (loginErr) => {
+						// 			this.tipMsg = "上传失败，请重试";
+						// 			this.$refs.elm.showDialog();
 									
-								}
-							});
-						});
+						// 		}
+						// 	});
+						// });
 					}
 				});
 			},

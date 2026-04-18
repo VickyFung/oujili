@@ -59,15 +59,16 @@
 			}
 		},
 		data: function() {
-			// const date = new Date(this.defaultTime);
-			const date = new Date();
+			const date = new Date(this.defaultTime);
+			// const date = new Date();
 			const years = [];
 			const year = date.getFullYear();
+			const curr_year = new Date().getFullYear();
 			const months = [];
 			const month = date.getMonth() + 1;
 			const days = [];
 			const day = date.getDate();
-			for (let i = 1990; i <= year - 16; i++) {
+			for (let i = 1990; i <= curr_year - 16; i++) {
 				years.push(i);
 			}
 			for (let i = 1; i <= 12; i++) {
@@ -84,16 +85,12 @@
 				month,
 				days,
 				day,
-				value: [9999, month - 1, day - 1],
+				value: [year - 1990, month - 1, day - 1],
 				visible: true,
 				indicatorStyle: `height: 45px;color: rgba(51, 51, 51, 0.2);background:rgba(238, 245, 254, 0.5);`,
 				fsdfds: `opacity: 0.5;background: rgba(238, 245, 254, 0);`
 			};
 		},
-		// onShow() {
-		// 	var curTime = this.year + '-' + this.month + '-' + this.day + ' ' + '00' + ':' + '00' + ':' + '00';
-		// 	this.$emit('curTime', curTime);
-		// },
 		methods: {
 			pickend(e) {
 				console.log(e);
