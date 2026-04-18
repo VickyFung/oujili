@@ -1,5 +1,5 @@
 // 请求接口
-export const BASE_URL = 'http://apitest.yuelaobaobao.com/api/app'; //正式接口
+export const BASE_URL = 'https://apitest.yuelaobaobao.com'; //正式接口
 
 export const AMAPKEY = 'afc1108338a00b4719cd5922e98bcd8a'; //高德定位小程序
 

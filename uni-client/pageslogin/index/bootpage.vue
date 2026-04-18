@@ -29,17 +29,7 @@
 		onLoad(options) {
 			this.obj = JSON.parse(options.obj)
 			console.log(this.obj)
-			const userInfo = uni.getStorageSync('itemobj');
-			this.$myRequest({
-				url: 'user/update',
-				data: {
-					gender: userInfo.gender,
-					birthday: userInfo.birthday,
-					city: userInfo.city,
-				},
-				withToken: true,
-				method: 'POST'
-			});
+			console.log(	uni.getStorageSync('itemobj'),"===============")
 		},
 		methods: {
 			handleShowTips() {

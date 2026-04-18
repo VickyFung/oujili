@@ -1,10 +1,13 @@
 module.exports = {
     devServer: {
 		    proxy: {
-		      '/api/app': {
+		      '/wxmapi': {
 		        //target: 'http://localhost:8088',
-				target: 'http://apitest.yuelaobaobao.com/api/app',
-				changeOrigin: true
+				target: 'https://apitest.yuelaobaobao.com',
+				changeOrigin: true,
+		        pathRewrite: {
+		          '^/wxmapi': '/test'
+		        }
 		      }
 		    },
 	}

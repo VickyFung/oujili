@@ -477,9 +477,9 @@
 				}
 				uni.showLoading({ title: '保存中...' });
 				const res = await this.$myRequest({
-					url: 'user/update',
+					url: 'nostalgia/fruser/update/configInfo',
 					withToken: true,
-					method: 'POST',
+					method: 'PUT',
 					data: {
 						nickName: this.form.nickName,
 						birthday: this.form.birthday,

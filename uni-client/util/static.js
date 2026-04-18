@@ -1,1 +1,1 @@
-export const BASE_URL =  'http://124.220.46.104:8088/'
+export const BASE_URL =  'https://apitest.yuelaobaobao.com'
