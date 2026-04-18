@@ -21,22 +21,19 @@ export const myRequest = (options) => {
 			method: options.method || "GET",
 			data: options.data || {},
 			header: {
-				Authorization: options.withToken? uni.getStorageSync("token"):'',
+				Authorization:options.withToken? uni.getStorageSync("token"):'',
 			},
 			success: (res) => {
-				if (res.data.code == 401 || res.data.code == 2) {
+				if (res.data.code == 2) {
 					uni.showToast({
 						icon: 'none',
 						title: '登录失效，请重新登录',
 						duration: 2000
 					})
-					uni.removeStorageSync('token');
-					uni.removeStorageSync('info');
-					uni.removeStorageSync('itemobj');
 					setTimeout(() => {
 						uni.reLaunch({
-							url: '/pageslogin/index/index'
-						});
+							url:"/pages/tab/index"
+						})
 					}, 200);
 				}
 				resolve(res);

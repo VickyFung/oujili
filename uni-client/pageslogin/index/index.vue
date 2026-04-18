@@ -4,18 +4,12 @@
 			<image class="bgc-imga" src="../../static/images/bg-c.png" mode="widthFix"></image>
 			<image class="bgc-img" src="../static/images/home-bgc.png" mode="aspectFit"></image>
 			<image class="logo-img" src="../static/images/logo.png"></image>
-			<!-- <view class="start-btn" @click="handleShowTips">
+			<view class="start-btn" @click="handleShowTips">
 				<view>开始邂逅</view>
-			</view> -->
-			<button class="start-btn"
-				open-type="getPhoneNumber" 
-				@getphonenumber="onGetPhoneNumber"
-			>
-				开始邂逅（手机号快捷登录）
-			</button>
+			</view>
 			<u-popup u-popup :show="tipsShow" mode="center" round="12" :safeAreaInsetBottom="false">
 				<view class="popup-container">
-					<!-- <image class="pop-bgc" :src="img + '/img/home-pop-bg.png'"></image> -->
+					<image class="pop-bgc" :src="img + '/img/home-pop-bg.png'"></image>
 					<view class="div-popo">
 						<view class="pop-title">温馨提示</view>
 						<view class="tips-content">
@@ -65,69 +59,139 @@
 			ELM
 		},
 		methods: {
-			async onGetPhoneNumber(e) {
-				console.log('获取手机号事件:', e);
-				// 1. 用户授权成功
-				if (e.detail.errMsg === 'getPhoneNumber:ok') {
-					const phoneCode = e.detail.code; // 动态令牌，5分钟有效，仅用一次
-					
-					// 2. 调用 wx.login 获取登录 code（用于后端换取 session_key/openid）
-					const loginRes = await wx.login();
-					if (loginRes.code) {
-						// 3. 将两个 code 传给后端解密
-						this.getPhoneFromServer(phoneCode, loginRes.code);
-					}
-				} else {
-					// 用户拒绝授权或授权失败
-					console.log('授权失败:', e.detail.errMsg);
-					wx.showToast({ title: '授权失败', icon: 'none' });
-				}
+			handleShowTips() {
+				this.getUserInfo();
+				// this.tipsShow = true
 			},
+			getUserInfo() {
+				// #ifdef MP-WEIXIN
+				try {
+					wx.getUserProfile({
+						desc: '用于完善会员资料',
+						success: resinfo => {
+							wx.login({
+								success: res => {
+									if (res.code) {
+										console.log(res.code, resinfo);
+										this.setCode(res.code, resinfo);
+									} else {}
+								},
+								fail: err => {}
+							});
+						},
+						fail: errinfo => {
+							this.setCode(this.generateRandomString(10), 'null');
+						}
+					});
+				} catch {
+					wx.getUserInfo({
+						success: resinfo => {
+							wx.login({
+								success: res => {
+									if (res.code) {
+										console.log(res.code, resinfo);
+										this.setCode(res.code, resinfo);
+									} else {}
+								},
+								fail: err => {}
+							});
+						},
+						fail: errinfo => {}
+					});
+				}
+				// #endif
+				// #ifndef MP-WEIXIN
+				this.setCode("ip", 'null');
+				// #endif
 
-			// 请求后端接口
-			async getPhoneFromServer(phoneCode, loginCode) {
+			},
+			async setCode(code, resinfo) {
+				console.log(code);
 				const res = await this.$myRequest({
-					url: 'auth/login',
+					url: 'token/wxAppletLogin',
 					data: {
-						loginType: "MINIPROGRAM",
-						clientType: "APP",
-						wxCode: loginCode,
-						phoneCode
+						code: code
 					},
 					method: 'POST'
 				});
-				if (res.statusCode !== 200) {
-					console.error('网络请求失败:', res);
-					wx.showToast({ title: '登录失败', icon: 'none' });
-					return;
-				}
+				console.log(res, 'delshoucang');
+				var obj = {
+					code: code,
+					state: res.data.code,
+					nickName: resinfo != 'null' ? resinfo.userInfo.nickName : "匿名用户"
+				};
+				uni.setStorageSync('verification', obj);
 				if (res.data.code == 200) {
-					console.log('后端解密成功:', res.data);
-					const { token, userId } = res.data.data;
-					uni.setStorageSync('userId', userId);
-					uni.setStorageSync('token', token);
-					const resInfo = await this.$myRequest({
-						url: 'user/getInfo',
-						withToken: true,
-						data: {
-							id: userId
-						},
-						method: 'POST'
-					});
-					if (resInfo.data?.code == 200) {
-						const userInfo = resInfo.data.data;
-						if (!userInfo.gender) { // 如果用户信息中没有性别，说明是新用户，跳转到完善信息页
-							uni.navigateTo({ url: './gender' }); // 在bootpage.vue中完善信息后，会存储itemobj，并跳转到主页
-						} else { // 跳转到主页
-							uni.setStorageSync('itemobj', userInfo); // 存储用户信息到 itemobj，下次进入 App.vue 时可以直接跳转到主页
-							uni.switchTab({ url: '/pages/tab/index' });
-						}
-					}
+					this.num = 0;
+					this.tipsShow = true;
+					var info = {
+						birthday: res.data.data.info.birthday,
+						city: res.data.data.info.city,
+						gender: res.data.data.info.gender,
+						headPortrait: res.data.data.info.headPortrait,
+						id: res.data.data.info.id,
+						nickName: res.data.data.info.nickName
+					};
+					uni.setStorageSync('info', info);
+					uni.setStorageSync('token', res.data.data.token);
+
+					var itemobj = {
+						birthday: res.data.data.info.birthday,
+						age: res.data.data.info.birthday,
+						gender: res.data.data.info.gender,
+						city: res.data.data.info.city
+					};
+					uni.setStorageSync('itemobj', itemobj);
+				} else if (res.data.code == 11002) {
+					this.tipsShow = true;
+					this.num = 1;
 				} else {
-					console.error('后端解密失败:', res);
-					wx.showToast({ title: '登录失败', icon: 'none' });
+					this.tipMsg = res.data.msg;
+					this.$refs.elm.showDialog();
 				}
 			},
+			handleNoAgree() {
+				this.tipsShow = false;
+			},
+			handAgree() {
+				this.tipsShow = false;
+				if (this.num == 0) {
+					uni.switchTab({
+						url: '/pages/tab/index'
+					});
+				} else {
+					uni.navigateTo({
+						url: './gender'
+					});
+				}
+			},
+			// 生成指定长度的随机字符串
+			generateRandomString(length) {
+			
+			    debugger
+				let result = uni.getStorageSync('touristopenid');
+				if (result != null&&result!="") {
+					return result;
+				}else{
+					result='';
+				}
+				const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; // 包含大小写字母和数字的所有字符集合
+			
+				for (let i = 0; i < length; i++) {
+					const randomIndex = Math.floor(Math.random() * characters.length);
+					result += characters[randomIndex];
+				}
+				var now = new Date();
+				var year = now.getFullYear(); // 年份
+				var month = (now.getMonth() + 1).toString().padStart(2, '0'); // 月份（注意要加上1）
+				var day = now.getDate().toString().padStart(2, '0'); // 天数
+				var hours = now.getHours().toString().padStart(2, '0'); // 小时
+				var minutes = now.getMinutes().toString().padStart(2, '0'); // 分钟
+				var seconds = now.getSeconds().toString().padStart(2, '0'); // 秒数
+				result = "touristopenid" + result + (+year + month + day + hours + minutes + seconds);
+				uni.setStorageSync('touristopenid', result);
+				return result;
+			}
 		}
 	};
 </script>

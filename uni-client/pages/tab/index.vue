@@ -379,10 +379,10 @@
 		onShow() {
 			this.chooseimg = false;
 			this.showAnima = false;
+			this.getRecUserInfo();
 			if (uni.getStorageSync('token')) {
-				// this.getRecUserInfo();
-				// this.getUnRead();
-				this.ownerId = uni.getStorageSync('itemobj') != null ? uni.getStorageSync('itemobj').userId : null;
+				this.getUnRead();
+				this.ownerId = uni.getStorageSync('info') != null ? uni.getStorageSync('info').id : null;
 				this.connectSocketInit();
 			}
 		},
